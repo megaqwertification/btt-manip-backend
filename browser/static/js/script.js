@@ -1,7 +1,6 @@
 import { findSeedDifference, formatHex, isInt, isHex, rngAdv, rngInt } from './util.js';
 import { MANIP_ACTIONS, PORT_ADVANCE_THRESHOLD, STAGE_LOAD_ACTION, buildActionSequence } from './rolls.js';
 import { EVENT_SEARCH_MAX_ITERATIONS, searchForEvent, buildCharacterEvents, buildPullEventList } from './event.js';
-import {} from './bowser.js'
 
 console.log('Version 1.0.1');
 /* Constants */
