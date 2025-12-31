@@ -1,6 +1,7 @@
 import { findSeedDifference, formatHex, isInt, isHex, rngAdv, rngInt } from './util.js';
 import { MANIP_ACTIONS, PORT_ADVANCE_THRESHOLD, STAGE_LOAD_ACTION, buildActionSequence } from './rolls.js';
 import { EVENT_SEARCH_MAX_ITERATIONS, searchForEvent, buildCharacterEvents, buildPullEventList } from './event.js';
+import {} from './bowser.js'
 
 console.log('Version 1.0.1');
 /* Constants */
@@ -107,6 +108,45 @@ function reset(forceReset = false) {
     clearSeq();
     clearResults();
     clearManualSeed();
+  }
+}
+
+function toggleCharacterSelection() {
+  let selectedCharacter;
+  const chars = document.getElementById('character-selector');
+  let peachOptions = document.getElementById('item-selector');
+  let mismatchBox = document.getElementById('mismatch-checkbox');
+  let mismatchControl = document.getElementById('mismatch-control');
+  let mismatchLabel = document.querySelector(`label[for="mismatch-checkbox"]`);
+  
+  chars.addEventListener('change', (e) => {
+    if (e.target.type === 'radio') {
+      selectedCharacter = e.target.value;
+      //console.log(selectedCharacter);
+    }
+    if (selectedCharacter === 'bowser') {
+      // Show options
+      peachOptions.classList.add('hidden');
+      mismatchBox.classList.add('hidden');
+      mismatchLabel.classList.add('hidden');
+      mismatchControl.classList.add('hidden');
+    } else {
+      // Hide options
+      peachOptions.classList.remove('hidden');
+      mismatchBox.classList.remove('hidden');
+      mismatchLabel.classList.remove('hidden');
+      mismatchControl.classList.remove('hidden');
+    }
+  //console.log(e.target.value)
+  });
+  
+  
+  if (selectedCharacter === 'bowser') {
+    // Show options
+    peachOptions.classList.add('none');
+  } else {
+    // Hide options
+    peachOptions.classList.remove('none');
   }
 }
 
@@ -561,6 +601,7 @@ let manualSeedInput = document.getElementById('manual-seed-input');
 manualSeedInput.addEventListener('input', onManualSeedInput);
 
 window.toggleMismatchOptions = toggleMismatchOptions;
+window.toggleCharacterSelection = toggleCharacterSelection;
 window.searchForSeed = searchForSeed;
 window.undoChar = undoChar;
 window.clearSeq = clearSeq;
