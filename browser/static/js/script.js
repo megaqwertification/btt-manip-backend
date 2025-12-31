@@ -110,6 +110,45 @@ function reset(forceReset = false) {
   }
 }
 
+function toggleCharacterSelection() {
+  let selectedCharacter;
+  const chars = document.getElementById('character-selector');
+  let peachOptions = document.getElementById('item-selector');
+  let mismatchBox = document.getElementById('mismatch-checkbox');
+  let mismatchControl = document.getElementById('mismatch-control');
+  let mismatchLabel = document.querySelector(`label[for="mismatch-checkbox"]`);
+  
+  chars.addEventListener('change', (e) => {
+    if (e.target.type === 'radio') {
+      selectedCharacter = e.target.value;
+      //console.log(selectedCharacter);
+    }
+    if (selectedCharacter === 'bowser') {
+      // Show options
+      peachOptions.classList.add('hidden');
+      mismatchBox.classList.add('hidden');
+      mismatchLabel.classList.add('hidden');
+      mismatchControl.classList.add('hidden');
+    } else {
+      // Hide options
+      peachOptions.classList.remove('hidden');
+      mismatchBox.classList.remove('hidden');
+      mismatchLabel.classList.remove('hidden');
+      mismatchControl.classList.remove('hidden');
+    }
+  //console.log(e.target.value)
+  });
+  
+  
+  if (selectedCharacter === 'bowser') {
+    // Show options
+    peachOptions.classList.add('none');
+  } else {
+    // Hide options
+    peachOptions.classList.remove('none');
+  }
+}
+
 function incrementSearchCount() {
   searchCount++;
 
@@ -561,6 +600,7 @@ let manualSeedInput = document.getElementById('manual-seed-input');
 manualSeedInput.addEventListener('input', onManualSeedInput);
 
 window.toggleMismatchOptions = toggleMismatchOptions;
+window.toggleCharacterSelection = toggleCharacterSelection;
 window.searchForSeed = searchForSeed;
 window.undoChar = undoChar;
 window.clearSeq = clearSeq;

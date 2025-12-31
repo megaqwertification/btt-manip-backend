@@ -14,17 +14,25 @@
     </div>
     <div id="settings-container">
         <p>Settings:</p>
+        <div id="character-selector" onclick="toggleCharacterSelection()">
+            <label>
+                <input type="radio" name="char" value="peach" checked>
+                <img src="/static/img/PeachOriginal.png" title="peach" class="full-image square-image">
+            </label>
+            <label>
+                <input type="radio" name="char" value="bowser">
+                <img src="/static/img/BowserOriginal.png" title="bowser" class="full-image square-image">
+            </label>
+        </div>
         <div id="item-selector">
             <label>
                 <input type="radio" name="item" value="beamsword" checked>
                 <img src="/static/img/beamsword.png" title="beamsword">
             </label>
-            
             <label>
                 <input type="radio" name="item" value="bomb">
                 <img src="/static/img/bobomb.png" title="bomb">
             </label>
-
             <label>
                 <input type="radio" name="item" value="saturn">
                 <img src="/static/img/saturn.png" title="saturn">

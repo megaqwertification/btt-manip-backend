@@ -18,10 +18,11 @@ class Action {
   }
 }
 
-// TODO: tweak these, tag and character should probably be less frames realistically
+// TODO: tweak these, tag and character and stage load with music change should probably be less frames realistically
 // A lot of the jump ones are rough estimates
 const MANIP_ACTIONS = [
   new Action('Idle Animation',                  1,    360,  false,  0),
+  new Action('Stage Load with Music Change',    1,    15,   true,   0),
   new Action('Random Tag',                      1,    15,   true,   0),
   new Action('Random Character',                2,    15,   true,   0),
   new Action('Shield',                          9,    40,   false,  0),
